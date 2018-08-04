@@ -3,14 +3,48 @@
 import sys
 import random
 
-player = input("What's your name?")
-print(player + " do you want to play Rocks Paper Scissors?")
+name = input("What's your name?")
 
+play = str.lower(input((name + " do you want to play Rocks Paper Scissors? ")))
+def choice(option):
+    if play == "yes":
+        print("Let's play")
+    else:
+        sys.exit()
 
-game = {'rock': 1, 'paper': 2, 'scissors': 3}
-choice = str.lower(input("Pick rock, paper, or scissors "))
+game = ['rock', 'paper', 'scissors']
+bot = random.choice(game)
+ask = input("Pick rock, paper, or scissors ")
 
+def puzz():
+    if ask == 'rock' and bot == 'rock':
+        print("The computer chose " + bot + " so " + "tie play again")
+    elif ask == 'rock' and bot == 'paper':
+        print("The computer chose " + bot + " so " + "you lose")
+    elif ask == 'rock' and bot == 'scissors':
+        print("The computer chose " + bot + " so " + "you win")
+    elif ask == 'paper' and bot == 'paper':
+        print("The computer chose " + bot + " so " + "tie play again")
+    elif ask == 'paper' and bot == 'scissors':
+        print("The computer chose " + bot + " so " + "you win")
+    elif ask == 'paper' and bot == 'rock':
+        print("The computer chose " + bot + " so " + 'you lose')
+    elif ask == 'scissors' and bot == 'paper':
+        print("The computer chose " + bot + " so " + "you win")
+    elif ask == 'scissors' and bot == 'scissors':
+        print("The computer chose " + bot + " so " + "tie play again")
+    elif ask == 'scissors' and bot == 'rock':
+        print("The computer chose " + bot + " so " + 'you lose')
+    else:
+        print('please choose:\nrock\npaper\nscissors')
 
-for x in range(1):
-    comp = random.randint(1,4)
+print(puzz())
 
+if str.lower(input("Do you want to play again?")) == "yes":
+    askAgain = ask
+    askAgain
+    botAgain = bot
+    botAgain
+    print(puzz())
+else:
+    sys.exit()
